@@ -1,0 +1,22 @@
+{
+  "appenders": {
+    "ruleConsole": {
+      "type": "console"
+    },
+    "ruleFile": {
+      "type": "dateFile",
+      "filename": "logs/server-",
+      "pattern": "yyyy-MM-dd.log",
+      "numBackups": 3,
+      "alwaysIncludePattern": true
+    }
+  },
+  "categories": {
+    "default": {
+      "appenders": ["ruleConsole", "ruleFile"],
+      "level": "DEBUG",
+      "level解释": "配置日志的输出级别,共ALL<TRACE<DEBUG<INFO<WARN<ERROR<FATAL<MARK<OFF八个级别,default level is OFF,只有大于等于日志配置级别的信息才能输出出来，可以通过category来有效的控制日志输出级别"
+    }
+  },
+  "replaceConsole": true
+}
