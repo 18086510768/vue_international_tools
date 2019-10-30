@@ -1,0 +1,2 @@
+# vue_international_tools
+一个基于express框架的vue国际化翻译插件
