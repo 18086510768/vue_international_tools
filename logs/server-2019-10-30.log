@@ -1,0 +1,15 @@
+[2019-10-30T10:56:15.709] [INFO] logInfo - ip==>
+ { host: 'localhost:8600',
+  connection: 'keep-alive',
+  'content-length': '6716',
+  accept: '*/*',
+  origin: 'http://localhost:8600',
+  'x-requested-with': 'XMLHttpRequest',
+  'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'content-type': 'multipart/form-data; boundary=----WebKitFormBoundaryghfSHUbeD9eASyTj',
+  referer: 'http://localhost:8600/translate.html',
+  'accept-encoding': 'gzip, deflate, br',
+  'accept-language': 'zh-CN,zh;q=0.9',
+  cookie: 'JSESSIONID.93e5728b=node01wybbxakdfcmacgwp4e7jd7z6493.node0; screenResolution=1920x1080' }
+[2019-10-30T10:56:15.711] [INFO] logInfo - files==>
+ {"fieldname":"transFiles","originalname":"apartment-map-choose-dorm.vue","encoding":"7bit","mimetype":"application/octet-stream","destination":"./upload/20191030105608/","filename":"apartment-map-choose-dorm.vue","path":"upload\\20191030105608\\apartment-map-choose-dorm.vue","size":3261}{"fieldname":"transFiles","originalname":"apartment-map-icon.vue","encoding":"7bit","mimetype":"application/octet-stream","destination":"./upload/20191030105608/","filename":"apartment-map-icon.vue","path":"upload\\20191030105608\\apartment-map-icon.vue","size":3060}

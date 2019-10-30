@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>翻译文件上传入口</title>
+  <style>
+  </style>
+</head>
+<style>
+  #upload {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: black;
+    color: #fff;
+    border-radius: 4px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+</style>
+
+<body>
+  <h1>请选择上传需要国际化的文件（支持多个上传）</h1>
+  <p style="color:red">*仅支持vue, html, xhtml, js, , txt, css, scss文件的翻译</p>
+  <form id="up">
+    <input type="file" name="transFiles" id="filesList" multiple>
+    <div id="upload">上传
+    </div>
+  </form>
+  <div class="outputfile"></div>
+</body>
+<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+<script>
+  document.getElementById('upload').onclick = function() {
+    var formdata = new FormData(document.getElementById("up")); //直接将表单对象赋给FormData
+
+    $.ajax({
+      url: "/international/uploadTransFiles",
+      type: "post",
+      data: formdata,
+      processData: false,
+      contentType: false,
+      success: function(data) {
+        //alert(data.message);
+        if (data.code == 1) {
+          console.log(data)
+          let pathArr = data.path
+          let str = ''
+          for (var i = 0; i < pathArr.length; i++) {
+            str += '<a download="' + pathArr[i].mainFilePath
+              .split('/').slice()
+              .pop() + '" href="' + pathArr[i].mainFilePath + '">' + pathArr[i].mainFilePath
+              .split('/').slice()
+              .pop() + '</a>\n<a download="' + pathArr[i].zhFilePath
+              .split('/').slice()
+              .pop() + '" href="' + pathArr[i].zhFilePath + '">' + pathArr[i]
+              .zhFilePath.split('/')
+              .slice()
+              .pop() + '</a>\n<a download="' + pathArr[i].enFilePath
+              .split('/').slice()
+              .pop() + '" href="' + pathArr[i].enFilePath + '">' + pathArr[i]
+              .enFilePath.split('/')
+              .slice()
+              .pop() + '</a>\n'
+          }
+          $('.outputfile').append(str)
+        } else {
+          alert(data.msg)
+        }
+      },
+      error: function(e) {
+        console.log("上传失败", e);
+      }
+    });
+  }
+</script>
+
+</html>
